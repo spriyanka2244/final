@@ -21,8 +21,10 @@ function addItem(e){
     // delete button
 
     var delbtn = document.createElement('button');
-    delbtn.textContent='Delete'
+    delbtn.textContent='Todo done'
 
+    var todel = document.createElement('button');
+    todel.textContent='Todo delete'
 
      // create li element
     var li=document.createElement('li')
@@ -36,25 +38,51 @@ function addItem(e){
     
 
     li.appendChild(delbtn)
+    li.appendChild(todel)
 
     
-
+   console.log(dis)
     dis.append(li)
 
 //    event listener for delete button
 delbtn.addEventListener('click',despir)
 
-// remove Item
+// remove Item todo done
 function despir(e){
     e.preventDefault();
         li.style.display='none' 
          setTimeout(()=>{
+             var tex=document.createElement("h1")
+             tex.appendChild(document.createTextNode("Todo done"))
+
             var a =document.getElementById('out')
             var  d=document.getElementById('delshow')
+            d.appendChild(tex)
             d.appendChild(a)
             
     })
           
+}
+
+
+
+// todo delete
+todel.addEventListener('click',del)
+
+function del(e){
+    e.preventDefault();
+    li.style.display='none' 
+         setTimeout(()=>{
+             var tex=document.createElement("h1")
+             tex.appendChild(document.createTextNode("Todo delete"))
+
+            var a =document.getElementById('out')
+            var  d=document.getElementById('delshow')
+            d.appendChild(tex)
+            d.appendChild(a)
+            
+    })
+        
 }
 
 }
