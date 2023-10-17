@@ -57,6 +57,8 @@ function despir(e){
             d.appendChild(a)
             
     },1000)
+
+
           
 }
 
@@ -75,6 +77,13 @@ function del(e){
             dp.appendChild(ap)
             
     },1000)
+
+    axios.post("https://crudcrud.com/api/ca75fa636a814021bae01022c4597ed2/Products",{
+    obj,
+    isdone:true
+})
+     .then((res)=>console.log(res))
+     .catch((err)=>console.log(err))
         
 }
 
@@ -85,7 +94,14 @@ const obj={
     tosdoName,
     todoDes
 }
-localStorage.setItem(obj.nam,JSON.stringify(obj))
+
+// postRequest
+axios.post("https://crudcrud.com/api/ca75fa636a814021bae01022c4597ed2/Products",{
+    obj,
+    isdone:false
+})
+     .then((res)=>console.log(res))
+     .catch((err)=>console.log(err))
 }
 
 
