@@ -11,7 +11,7 @@ var d=document.getElementById('des')
  
 
 // to display
-var dis=document.getElementById("ans")
+var dis=document.getElementById("display-full-content")
 
 form.addEventListener('submit',addItem)
 
@@ -40,9 +40,7 @@ function addItem(e){
     li.appendChild(delbtn)
     li.appendChild(todel)
 
-    
-   console.log(dis)
-    dis.append(li)
+    dis.appendChild(li)
 
 //    event listener for delete button
 delbtn.addEventListener('click',despir)
@@ -58,7 +56,7 @@ function despir(e){
            
             d.appendChild(a)
             
-    })
+    },1000)
           
 }
 
@@ -76,7 +74,7 @@ function del(e){
            
             dp.appendChild(ap)
             
-    })
+    },1000)
         
 }
 
