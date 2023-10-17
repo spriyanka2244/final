@@ -24,7 +24,7 @@ function addItem(e){
     delbtn.textContent='Todo done'
 
     var todel = document.createElement('button');
-    todel.textContent='Todo delete'
+    todel.textContent='x'
 
      // create li element
     var li=document.createElement('li')
@@ -52,18 +52,15 @@ function despir(e){
     e.preventDefault();
         li.style.display='none' 
          setTimeout(()=>{
-             var tex=document.createElement("h1")
-             tex.appendChild(document.createTextNode("Todo done"))
-
+            
             var a =document.getElementById('out')
-            var  d=document.getElementById('delshow')
-            d.appendChild(tex)
+            var  d=document.getElementById('done')
+           
             d.appendChild(a)
             
     })
           
 }
-
 
 
 // todo delete
@@ -73,13 +70,11 @@ function del(e){
     e.preventDefault();
     li.style.display='none' 
          setTimeout(()=>{
-             var tex=document.createElement("h1")
-             tex.appendChild(document.createTextNode("Todo delete"))
-
-            var a =document.getElementById('out')
-            var  d=document.getElementById('delshow')
-            d.appendChild(tex)
-            d.appendChild(a)
+             
+            var ap =document.getElementById('out')
+            var  dp=document.getElementById('delete')
+           
+            dp.appendChild(ap)
             
     })
         
