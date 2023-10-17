@@ -78,4 +78,14 @@ function del(e){
         
 }
 
+const tosdoName=e.target.nam.value;
+const todoDes=e.target.des.value;
+
+const obj={
+    tosdoName,
+    todoDes
 }
+localStorage.setItem(obj.nam,JSON.stringify(obj))
+}
+
+
