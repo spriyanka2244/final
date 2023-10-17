@@ -33,7 +33,7 @@ function addItem(e){
     // add text node with input valut
     var out=document.createElement('li')
     out.id="out"
-    out.appendChild(document.createTextNode(`${n.value}:${d.value}`))
+    out.appendChild(document.createTextNode(`${n.value}=>${d.value}`))
     li.appendChild(out);
     
 
