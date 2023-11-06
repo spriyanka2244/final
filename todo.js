@@ -1,3 +1,7 @@
+// style
+// body.style.backgroundColor="rgb("+e.offsetX","+e.offsetY+")"
+
+
 // for one box
 // get the value of input
 var form =document.getElementById("form");
@@ -7,8 +11,6 @@ var n=document.getElementById('nam')
 
 var d=document.getElementById('des')
 
-
- 
 
 // to display
 var dis=document.getElementById("display-full-content")
@@ -20,11 +22,15 @@ function addItem(e){
     //  console.log(1)
     // delete button
 
-    var delbtn = document.createElement('button');
-    delbtn.textContent='Todo done'
+    var todoDonebtn = document.createElement('button');
+    todoDonebtn.textContent='Todo done'
+    todoDonebtn.className='btn btn-success'
+    
 
     var todel = document.createElement('button');
     todel.textContent='x'
+     
+    todel.className = 'btn btn-danger btn-sm float-right delete';
 
      // create li element
     var li=document.createElement('li')
@@ -37,18 +43,21 @@ function addItem(e){
     li.appendChild(out);
     
 
-    li.appendChild(delbtn)
+    li.appendChild(todoDonebtn)
     li.appendChild(todel)
 
     dis.appendChild(li)
 
 //    event listener for delete button
-delbtn.addEventListener('click',despir)
+todoDonebtn.addEventListener('click',todoDone)
+todel.addEventListener('click',del)
 
 // remove Item todo done
-function despir(e){
+ function todoDone(e){
     e.preventDefault();
-        li.style.display='none' 
+         li.style.display='none' 
+        // li.removeChild(out)
+        console.log(li)
          setTimeout(()=>{
             
             var a =document.getElementById('out')
@@ -56,34 +65,38 @@ function despir(e){
            
             d.appendChild(a)
             
-    },1000)
-
+    })
+    
+    // network call
+    axios.post("https://crudcrud.com/api/fe1d806e6e0343ccb07d1ab252d5fc7c/Products",{
+        obj,
+        isdone:true
+    })
+         .then((res)=>console.log(res))
+         .catch((err)=>console.log(err))
+    
+         
+    }
 
           
-}
+
 
 
 // todo delete
-todel.addEventListener('click',del)
+
 
 function del(e){
     e.preventDefault();
-    li.style.display='none' 
-         setTimeout(()=>{
+     li.style.display='none'
+    // li.removeChild(out)     
+    setTimeout(()=>{
              
             var ap =document.getElementById('out')
             var  dp=document.getElementById('delete')
            
-            dp.appendChild(ap)
+            dp.appendChild(ap)      
             
-    },1000)
-
-    axios.post("https://crudcrud.com/api/ca75fa636a814021bae01022c4597ed2/Products",{
-    obj,
-    isdone:true
-})
-     .then((res)=>console.log(res))
-     .catch((err)=>console.log(err))
+    })  
         
 }
 
@@ -96,12 +109,11 @@ const obj={
 }
 
 // postRequest
-axios.post("https://crudcrud.com/api/ca75fa636a814021bae01022c4597ed2/Products",{
+axios.post("https://crudcrud.com/api/fe1d806e6e0343ccb07d1ab252d5fc7c/Products",{
     obj,
     isdone:false
 })
      .then((res)=>console.log(res))
      .catch((err)=>console.log(err))
+
 }
-
-
