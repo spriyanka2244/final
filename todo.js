@@ -17,7 +17,8 @@ var dis=document.getElementById("display-full-content")
 
 form.addEventListener('submit',addItem)
 
-function addItem(e){
+ async function addItem(e){
+ try {
     e.preventDefault();
     //  console.log(1)
     // delete button
@@ -53,7 +54,7 @@ todoDonebtn.addEventListener('click',todoDone)
 todel.addEventListener('click',del)
 
 // remove Item todo done
- function todoDone(e){
+   function todoDone(e){
     e.preventDefault();
          li.style.display='none' 
         // li.removeChild(out)
@@ -66,7 +67,6 @@ todel.addEventListener('click',del)
             d.appendChild(a)
             
     })
-    
     // network call
     axios.post("https://crudcrud.com/api/fe1d806e6e0343ccb07d1ab252d5fc7c/Products",{
         obj,
@@ -100,6 +100,7 @@ function del(e){
         
 }
 
+
 const tosdoName=e.target.nam.value;
 const todoDes=e.target.des.value;
 
@@ -116,4 +117,9 @@ axios.post("https://crudcrud.com/api/fe1d806e6e0343ccb07d1ab252d5fc7c/Products",
      .then((res)=>console.log(res))
      .catch((err)=>console.log(err))
 
+
 }
+catch(err){
+    console.log(err)
+}
+ }
