@@ -56,8 +56,8 @@ todel.addEventListener('click',del)
 // remove Item todo done
  async function todoDone(e){
     e.preventDefault();
-        //  li.style.display='none' 
-        li.remove(className="list-group-item")
+    // li.remove(className="list-group-item")
+         li.style.display='none' 
         // li.removeChild(out)
         console.log(li)
          setTimeout(()=>{
@@ -88,7 +88,7 @@ todel.addEventListener('click',del)
 
 async function del(e){
     e.preventDefault();
-    li.remove(className="list-group-item")
+     li.style.display='none'
     // li.removeChild(out)     
     setTimeout(()=>{
              
