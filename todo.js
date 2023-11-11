@@ -54,9 +54,10 @@ todoDonebtn.addEventListener('click',todoDone)
 todel.addEventListener('click',del)
 
 // remove Item todo done
-   function todoDone(e){
+ async function todoDone(e){
     e.preventDefault();
-         li.style.display='none' 
+        //  li.style.display='none' 
+        li.remove(className="list-group-item")
         // li.removeChild(out)
         console.log(li)
          setTimeout(()=>{
@@ -85,9 +86,9 @@ todel.addEventListener('click',del)
 // todo delete
 
 
-function del(e){
+async function del(e){
     e.preventDefault();
-     li.style.display='none'
+    li.remove(className="list-group-item")
     // li.removeChild(out)     
     setTimeout(()=>{
              
@@ -119,6 +120,7 @@ axios.post("https://crudcrud.com/api/fe1d806e6e0343ccb07d1ab252d5fc7c/Products",
 
 
 }
+
 catch(err){
     console.log(err)
 }
